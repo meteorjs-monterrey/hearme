@@ -21,3 +21,5 @@ kadira:blaze-layout
 accounts-facebook
 service-configuration
 twbs:bootstrap
+dburles:google-maps
+mdg:geolocation
