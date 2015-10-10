@@ -13,6 +13,7 @@ Template.login.events({
 
 
 Template.login.rendered = function(){
+
 	if(Meteor.userId()){
 		FlowRouter.go('/');
 	}
