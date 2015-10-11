@@ -6,8 +6,8 @@ Template.home.onCreated(function(){
 
 Template.home.utils = {
 	updateUserGeoLocation: function(){
-		Meteor.call("updateUserGeoLocation", Geolocation.latLng());
+		Meteor.call("updateUserGeoLocation", geoLocationUtils.latLng());
 
-		setTimeout(Template.home.utils.updateUserGeoLocation, 5000);
+		setTimeout(Template.home.utils.updateUserGeoLocation, 60000);
 	}
 }

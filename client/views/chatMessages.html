@@ -10,6 +10,9 @@
 						<td class="user-text">
 							{{text}}
 						</td>
+						<td>
+							distance: {{calculateDistance userGeoLocation.lat userGeoLocation.lng geoLocation.lat geoLocation.lng}}
+						</td>
 					</tr>
 				{{/each}}
 			</tbody>
