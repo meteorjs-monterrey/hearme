@@ -1,10 +1,10 @@
-Template.checkLocation.isLocationSet = function(){
+Template.checkLocation.redirectWhenLocationSet = function(){
 	console.log("Checking Location.");
 	geoLocationUtils.update();
 	if(geoLocationUtils.latLng() == null){
 		console.log("Check again.");
 		setTimeout(function(){
-			Template.checkLocation.isLocationSet();
+			Template.checkLocation.redirectWhenLocationSet();
 		}, 5000);
 	}
 	else{
@@ -14,5 +14,5 @@ Template.checkLocation.isLocationSet = function(){
 }
 
 Template.checkLocation.onCreated(function() {
-	Template.checkLocation.isLocationSet();
+	Template.checkLocation.redirectWhenLocationSet();
 });

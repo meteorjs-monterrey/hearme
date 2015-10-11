@@ -2,7 +2,9 @@ Template.home.onCreated(function(){
 
 	Meteor.subscribe("userDetails");
 	Template.home.utils.updateUserGeoLocation();
-
+	if(geoLocationUtils.latLng() == null){
+		FlowRouter.go('/checkLocation');
+	}
 });
 
 Template.home.utils = {
@@ -28,7 +30,7 @@ Template.home.utils = {
 				"cancel":{
 					'class': 'btn-danger',
 					'label': 'Cancel'
-				}
+	}
 			}
 		}
 
