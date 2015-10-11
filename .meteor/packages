@@ -23,4 +23,3 @@ service-configuration
 twbs:bootstrap
 dburles:google-maps
 mdg:geolocation
-msavin:mongol
