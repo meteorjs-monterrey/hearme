@@ -24,4 +24,5 @@ twbs:bootstrap
 dburles:google-maps
 mdg:geolocation
 msavin:mongol
+pahans:reactive-modal
 materialize:materialize@=0.97.0

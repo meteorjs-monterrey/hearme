@@ -1,3 +1,13 @@
-.hide-chat {
-	
+.chat-area {
+	background: #FFF;
+	width:100%;
+	display: block;
+}
+
+.chat-hide {
+	bottom: -100px;
+}
+
+.chat-show {
+	bottom: 100;
 }

@@ -27,11 +27,11 @@ Meteor.startup(function() {
 
 Template.map.helpers({  
     geolocationError: function() {
-        var error = Geolocation.error();
+        var error = "Unable to get location"
         return error && error.message;
     },
     mapOptions: function() {
-        var latLng = Geolocation.latLng();
+        var latLng = geoLocationUtils.latLng();
         if (GoogleMaps.loaded() && latLng) {
             return {
                 center: new google.maps.LatLng(latLng.lat, latLng.lng),
@@ -46,7 +46,7 @@ Template.map.helpers({
 
 Template.map.onCreated(function() {  
     GoogleMaps.ready('map', function(map) {
-        var latLng = Geolocation.latLng();
+        var latLng = geoLocationUtils.latLng();
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(latLng.lat, latLng.lng),
             map: map.instance

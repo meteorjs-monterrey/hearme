@@ -1,10 +1,7 @@
 <template name="chatMessage">
-	<div class="container triangle-right left">
-		<label class="chat-message-nick">
-			<!--{{user}}-->User
-		</label>
-		<p class="chat-message-text">
-			{{text}}
-		</p>
-	</div>
+	<li class="collection-item avatar">
+      <i class="material-icons circle">{{ picture }}</i>
+      <span class="title"><!--{{user}}-->User ({{calculateDistance}})</span>
+      <p>{{text}}</p>
+    </li>
 </template>

@@ -5,6 +5,10 @@ Template.chat.onCreated(function(){
 Template.chat.helpers({
 	'messages': function(){
 		return Messages.find({});
+	},
+
+	'userGeoLocation': function(){
+		return Geolocation.latLng();
 	}
 });
 
@@ -29,10 +33,11 @@ Template.chat.utils = {
 			Messages.insert(
 				{
 					user:Meteor.user().name,
+					userId: Meteor.userId(),
 					picture: Meteor.user().picture,
 					text: text, 
 					sentOn: new Date(), 
-					location:Geolocation.latLng()
+					geoLocation:Geolocation.latLng()
 				});
 			
 			$(".chat-input").val('');
