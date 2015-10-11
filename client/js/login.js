@@ -5,7 +5,7 @@ Template.login.events({
             if (err) {
                 alert("Facebook login error");
             }else{
-            	FlowRouter.go('/');
+            	FlowRouter.go('/checkLocation');
             }
         });
     },
@@ -15,6 +15,6 @@ Template.login.events({
 Template.login.rendered = function(){
 
 	if(Meteor.userId()){
-		FlowRouter.go('/');
+		FlowRouter.go('/checkLocation');
 	}
 }
