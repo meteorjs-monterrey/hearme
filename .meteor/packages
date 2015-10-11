@@ -24,6 +24,6 @@ twbs:bootstrap
 dburles:google-maps
 mdg:geolocation
 msavin:mongol
-pahans:reactive-modal
 chuangbo:cookie
 materialize:materialize@=0.97.0
+pfafman:materialize-modal

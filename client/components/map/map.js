@@ -75,9 +75,24 @@ Template.map.onCreated(function() {
                     var latLng = geoLocationUtils.latLng();
                     var marker = new google.maps.Marker({
                         position: new google.maps.LatLng(doc.geoLocation.lat, doc.geoLocation.lng),
-                        map: map.instance
+                        map: map.instance,
+                        data: doc,
+                        icon: "/images/pointer.png",
+                        animation: google.maps.Animation.DROP
                     });
-
+                    var contentString = '<div class=""><h5><img src="' + doc.picture + '" class="circle"/>' + doc.nick + '</h5><p>' + doc.text + '</p></div>';
+                    
+                    var infowindow = new google.maps.InfoWindow({
+                        content: contentString
+                    });
+                    
+                    marker.addListener('click',function(){
+                        console.log(this.data);
+                        if (infowindow) {
+                            infowindow.close();
+                        }
+                        infowindow.open(map.instance, marker);
+                    });
                     currentMarkers.push({doc:doc, marker: marker});
                 }
             },
