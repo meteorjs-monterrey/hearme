@@ -11,7 +11,7 @@ Template.chatMessage.helpers({
 			distanceMeters = locationUtils.getDistance(latLng.lat, latLng.lng, msgLat, msgLng);
 		console.log(distanceMeters);
 		if (distanceMeters < 1)
-			displayMessage = "";
+			return "";
 		else if (distanceMeters < 5)
 			displayMessage = "< 5m";
 		else if (distanceMeters < 10)
@@ -26,6 +26,6 @@ Template.chatMessage.helpers({
 			displayMessage = "< 5km";
 		else
 			displayMessage = "Far";
-		return displayMessage;
+		return "( " + displayMessage + " )";
 	}
 });

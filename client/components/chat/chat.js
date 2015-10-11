@@ -28,16 +28,25 @@ Template.chat.utils = {
 	sendMessage: function(){
 		var text = $(".chat-input").val();
 		var nick = "";
-
+		var currentUser = {
+			userName: "Anonymous",
+			userId: "-1",
+			picture: ""
+		};
+		if (Meteor.user()) {
+			currentUser.userName = Meteor.user().name;
+			currentUser.userId = Meteor.userId();
+			currentUser.picture = Meteor.user().picture;
+		}
 		if(text && text.length > 0){
 			Messages.insert(
 				{
-					user:Meteor.user().name,
-					userId: Meteor.userId(),
-					picture: Meteor.user().picture,
+					user: currentUser.userName,
+					userId: currentUser.userId,
+					picture: currentUser.picture,
 					text: text, 
 					sentOn: new Date(), 
-					geoLocation:geoLocationUtils.latLng()
+					geoLocation: geoLocationUtils.latLng()
 				});
 			
 			$(".chat-input").val('');
