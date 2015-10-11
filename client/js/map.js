@@ -44,12 +44,25 @@ Template.map.helpers({
     }
 });
 
-Template.map.onCreated(function() {  
+Template.map.onCreated(function() {
+    Meteor.subscribe("markers");
+
     GoogleMaps.ready('map', function(map) {
-        var latLng = geoLocationUtils.latLng();
+      /*  var latLng = geoLocationUtils.latLng();
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(latLng.lat, latLng.lng),
             map: map.instance
-        });
+        });*/
+
+    var markers = Markers.find({}).observe({
+        added: function(document){
+            console.log("added:");
+            console.log(document);
+        },
+        removed: function(document){
+            console.log("removed: " + document);
+        }
+    });
+
     });
 });

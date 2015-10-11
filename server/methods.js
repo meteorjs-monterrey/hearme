@@ -8,30 +8,37 @@ Meteor.methods({
 		return false;
 	},
 
-	addMark: function(newMark){
-		if(this.userId && newMark.geoLocation){
-			var existingMarks = Marks.find({userId:this.userId}).fetch();
+	addMark: function(newMarker){
+		if(this.userId && newMarker.geoLocation && newMarker.text && newMarker.text.length > 0){
+			var existingMarkers = Markers.find({userId:this.userId}).fetch();
 
-			for (var i = 0; i < existingMarks.length; i++) {
-				var existingMark = existingMarks[i];
+			for (var i = 0; i < existingMarkers.length; i++) {
+				var existingMarker = existingMarkers[i];
 
-				if(existingMark.geoLocation){
+				if(existingMarker.geoLocation){
 					var distance = locationUtils.getDistance(
-						existingMark.geoLocation.lat,
-						existingMark.geoLocation.lng,
-						newMark.geoLocation.lat,
-						newMark.geoLocation.lng);
+						existingMarker.geoLocation.lat,
+						existingMarker.geoLocation.lng,
+						newMarker.geoLocation.lat,
+						newMarker.geoLocation.lng);
 
-					if(distance < 10){
+					if(distance< 10){
 						return false;
 					}
+				}else{
+					console.log("marker without location: "+ existingMarker._id);
 				}
 			}
 
-			Marks.insert(
+			var user = Meteor.users.findOne({_id:this.userId});
+
+			Markers.insert(
 				{
 					userId: this.userId,
-					geoLocation:newMark.geoLocation,
+					text: newMarker.text,
+					picture: user.picture,
+					nick: user.name,
+					geoLocation:newMarker.geoLocation,
 					addedOn:new Date()
 				});
 

@@ -1,10 +1,13 @@
 Template.home.onCreated(function(){
 
-	Meteor.subscribe("userDetails");
 	Template.home.utils.updateUserGeoLocation();
+
 	if(geoLocationUtils.latLng() == null){
 		FlowRouter.go('/checkLocation');
 	}
+
+	Meteor.subscribe("markers");
+	Meteor.subscribe("userDetails");
 });
 
 Template.home.utils = {
@@ -30,10 +33,19 @@ Template.home.utils = {
 				"cancel":{
 					'class': 'btn-danger',
 					'label': 'Cancel'
-	}
+				}
 			}
 		}
 
-		ReactiveModal.initDialog(postDialogData).show();
+		var dialog = ReactiveModal.initDialog(postDialogData);
+
+		dialog.buttons.ok.on('click', function(){
+			var text = $("#postText").val();
+
+			Meteor.call("addMark", {geoLocation: geoLocationUtils.latLng(), text:text});
+		});
+
+		dialog.show();
+
 	}
 }
