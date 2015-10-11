@@ -13,7 +13,10 @@ Template.home.onCreated(function(){
 Template.home.events({
 	'click a.post': function(){
 		Template.home.utils.showPostDialog();
-	}
+	},
+	'click a.chatBtn': function(){
+		Template.home.utils.showChat();
+	}	
 });
 
 Template.home.utils = {
@@ -27,6 +30,13 @@ Template.home.utils = {
 		MaterializeModal.display({
 			bodyTemplate: "postBody",
 			footerTemplate: "postFooter"
+			});
+	},
+	showChat: function() {
+		MaterializeModal.display({
+			bodyTemplate: "chat",
+			footerTemplate: "chatFooter",
+			bottomSheet: true
 			});
 	}
 }
