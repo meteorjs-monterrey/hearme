@@ -70,10 +70,10 @@ Meteor.publish("markers", function(){
 			}
 		}
 
-		var ins = {userId:{$in:userIds}};
+		var ins = {$and:[{userId:{$in:userIds}}, {isActive:true}]};
 		var queryParams = 
 		{
-			limit:100
+			limit:500
 		};
 
 		return Markers.find(ins, queryParams);

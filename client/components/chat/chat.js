@@ -38,16 +38,10 @@ Template.chat.utils = {
 			currentUser.userId = Meteor.userId();
 			currentUser.picture = Meteor.user().picture;
 		}
+
 		if(text && text.length > 0){
-			Messages.insert(
-				{
-					user: currentUser.userName,
-					userId: currentUser.userId,
-					picture: currentUser.picture,
-					text: text, 
-					sentOn: new Date(), 
-					geoLocation: geoLocationUtils.latLng()
-				});
+
+			Meteor.call("addMessage", {text: text, geoLocation:geoLocationUtils.latLng()});
 			
 			$(".chat-input").val('');
 		}

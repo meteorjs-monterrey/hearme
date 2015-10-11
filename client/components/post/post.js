@@ -1,8 +1,8 @@
 Template.postBody.events({
   "click button[data-custom-action], submit form": function(e, tmpl) {
-    //  (1) Grab the user's input
+    
     var result = tmpl.find("input#postText").value;
-    //  (2) Do some custom logic!
+
     if (result.length < 100) {
       console.log(result);
       Template.postBody.utils.postMarker();
