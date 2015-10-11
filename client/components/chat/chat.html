@@ -1,0 +1,23 @@
+<template name="chat">
+	<div class="chat-area chat-hide">
+		<div class="col-sm-12">
+			<ul class="collection">
+				{{#each messages}}
+					{{ >chatMessage}}
+				{{/each}}
+			</ul>
+		</div>
+		<div class="col-sm-12">
+			<table class="table">
+				<tr>
+					<td>
+						<input id="chatInput" type="text" class="form-control chat-input" place-holder="write a message">
+						</td>
+					<td>
+						<button class="btn btn-info send-message">send</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</template>

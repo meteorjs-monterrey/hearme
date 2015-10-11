@@ -1,12 +1,7 @@
 <template name="layout">
-
-	<!--<div id="navbar" class="container-fluid no-side-padding">
-		{{#if currentUser}}
-			{{> navbar}}
-		{{/if}}
-	</div> -->
+	{{> navBar }}
 	<div id="bodyContent" class="container-fluid no-side-padding">
 		{{> Template.dynamic template=body}}
 	</div>
-
+	<!--{{> footer }}-->
 </template>
