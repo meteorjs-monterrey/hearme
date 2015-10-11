@@ -20,10 +20,9 @@ kadira:flow-router
 kadira:blaze-layout
 accounts-facebook
 service-configuration
-twbs:bootstrap
 dburles:google-maps
 mdg:geolocation
 msavin:mongol
 chuangbo:cookie
 materialize:materialize@=0.97.0
-pfafman:materialize-modal
+meteorstuff:materialize-modal
