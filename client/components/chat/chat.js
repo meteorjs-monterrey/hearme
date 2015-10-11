@@ -37,7 +37,7 @@ Template.chat.utils = {
 					picture: Meteor.user().picture,
 					text: text, 
 					sentOn: new Date(), 
-					geoLocation:Geolocation.latLng()
+					geoLocation:geoLocationUtils.latLng()
 				});
 			
 			$(".chat-input").val('');
