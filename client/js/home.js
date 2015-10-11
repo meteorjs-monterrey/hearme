@@ -23,35 +23,10 @@ Template.home.utils = {
 		setTimeout(Template.home.utils.updateUserGeoLocation, 60000);
 	},
 
-	showPostDialog: function(){
-		var postDialogData = {
-			template: Template.post,
-			title: "Post",
-			modalDialogClass: "",
-			modalBodyClass: "",
-			modalFooterClass: "",
-			removeOnHide: true,
-			buttons:{
-				"ok":{
-					'class': 'btn-success',
-					'label': 'Hear Me!'
-				},
-				"cancel":{
-					'class': 'btn-danger',
-					'label': 'Cancel'
-				}
-			}
-		}
-
-		var dialog = ReactiveModal.initDialog(postDialogData);
-
-		dialog.buttons.ok.on('click', function(){
-			var text = $("#postText").val();
-
-			Meteor.call("addMark", {geoLocation: geoLocationUtils.latLng(), text:text});
+	showPostDialog: function() {
+		MaterializeModal.display({
+			bodyTemplate: "postBody",
+			footerTemplate: "postFooter"
 		});
-
-		dialog.show();
-
 	}
 }
