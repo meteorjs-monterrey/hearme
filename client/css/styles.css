@@ -1,0 +1,71 @@
+html {
+	font-family: "Arial Black", Gadget, sans-serif;
+}
+
+.label-login{
+	font-weight: bold;
+	color: #FFF;
+	margin: 15% auto;
+	font-size: 45px;
+}
+
+.container{
+	margin: 2% auto;
+}
+
+.logo{
+	width: 25%;
+	margin: 1%;
+	left: 0;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.head-title{
+	color: #3A5488;
+	margin: 1% 15px;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 100px;
+}
+ 
+.iconfacebook {
+	background: #43609C;
+	border-radius: 15px;
+	display: block;
+	top: 20%;
+	min-width: 250px;
+	padding: 0px 20px 0 35px;
+	border: none;
+}
+ 
+.iconfacebook:after {
+	color: #fff;
+	content: "f";
+	font-family: Facebook Letter Faces, Arial;
+	font-size: 80px;
+	font-weight: bold;
+	vertical-align: middle;
+	display: inline-block;
+	float: left;
+}
+
+.chat-input{
+	width: 100%;
+	margin: 2%;
+}
+
+.send-message{
+	background-color: #43609C;
+}
+
+.arrow-right {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 12px 0 12px 20.0px;
+	border-color: transparent transparent transparent #ffffff;
+	line-height: 0px;
+	_border-color: #000000 #000000 #000000 #ffffff;
+	_filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+}
