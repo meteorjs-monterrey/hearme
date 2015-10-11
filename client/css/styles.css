@@ -1,0 +1,79 @@
+html {
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+label{
+	font-weight: bold;
+	color: #FFF;
+	float: right;
+	margin: 20% auto;
+}
+
+table{
+	margin: 0 auto;
+}
+
+.container{
+	margin: 2% auto;
+}
+
+.logo{
+	width: 8%;
+	margin: 1%;
+	left: 0;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.head-title{
+	color: #FFF;
+	text-shadow: -3px 2px 8px rgba(0,0,0, 1);
+	display: inline-block;
+	vertical-align: middle;
+}
+ 
+.iconfacebook {
+	background: #43609C;
+	border-radius: 12%;
+	display: block;
+	top: 20%;
+	min-width: 100px;
+	padding: 0 1%;
+}
+ 
+.iconfacebook:after {
+	color: #fff;
+	content: "f";
+	font-family: Facebook Letter Faces, Arial;
+	font-size: 30px;
+	font-weight: bold;
+	margin: 3%;
+	vertical-align: middle;
+	display: inline-block;
+	float: left;
+}
+ 
+.iconfacebook:hover {
+	-moz-box-shadow: 0px 0px 7px rgba(255, 250, 250, 0.75);
+	-webkit-box-shadow: 0px 0px 7px rgba(255, 250, 250, 0.75);
+}
+
+.chat-input{
+	width: 100%;
+	margin: 2%;
+}
+
+.send-message{
+	background-color: #43609C;
+}
+
+.arrow-right {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 12px 0 12px 20.0px;
+	border-color: transparent transparent transparent #ffffff;
+	line-height: 0px;
+	_border-color: #000000 #000000 #000000 #ffffff;
+	_filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+}
