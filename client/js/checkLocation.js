@@ -1,14 +1,10 @@
 Template.checkLocation.redirectWhenLocationSet = function(){
-	console.log("Checking Location.");
-	geoLocationUtils.update();
-	if(geoLocationUtils.latLng() == null){
-		console.log("Check again.");
+	if(geoLocationUtils.latLng() == 'undefined' || geoLocationUtils.latLng() == null){
 		setTimeout(function(){
 			Template.checkLocation.redirectWhenLocationSet();
 		}, 5000);
 	}
 	else{
-		console.log("Go HOME");
 		FlowRouter.go('/');
 	}
 }
