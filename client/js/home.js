@@ -10,6 +10,12 @@ Template.home.onCreated(function(){
 	Meteor.subscribe("userDetails");
 });
 
+Template.home.events({
+	'click .post': function(){
+		Template.home.utils.showPostDialog();
+	}
+});
+
 Template.home.utils = {
 	updateUserGeoLocation: function(){
 		Meteor.call("updateUserGeoLocation", geoLocationUtils.latLng());
