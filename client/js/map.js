@@ -1,4 +1,6 @@
 var MAP_ZOOM = 15;
+var currentMarkers = [];
+
 var styles = [
 {
     featureType: "all",
@@ -20,10 +22,6 @@ var styles = [
     ]
   }
 ];
-
-Meteor.startup(function() {  
-    GoogleMaps.load();
-});
 
 Template.map.updateOldLocation = function(map){
     console.log("Check new location")
@@ -62,23 +60,36 @@ Template.map.onCreated(function() {
     Meteor.subscribe("markers");
 
     GoogleMaps.ready('map', function(map) {
-      /*  var latLng = geoLocationUtils.latLng();
-        Template.map.updateOldLocation(map);
-        var latLng = geoLocationUtils.latLng();
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(latLng.lat, latLng.lng),
-            map: map.instance
-        });*/
 
-    var markers = Markers.find({}).observe({
-        added: function(document){
-            console.log("added:");
-            console.log(document);
-        },
-        removed: function(document){
-            console.log("removed: " + document);
-        }
-    });
+        var markers = Markers.find({}).observe({
+            added: function(doc){
+                var markerAdded = false;
+                for (var i = 0; i < currentMarkers.length; i++) {
+                    if(currentMarkers[i].doc._id == doc._id){
+                        markerAdded = true;
+                    }
+                };
 
+                if(!markerAdded){
+
+                    var latLng = geoLocationUtils.latLng();
+                    var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(doc.geoLocation.lat, doc.geoLocation.lng),
+                        map: map.instance
+                    });
+
+                    currentMarkers.push({doc:doc, marker: marker});
+                }
+            },
+            removed: function(doc){
+
+                for (var i = 0; i < currentMarkers.length; i++) {
+                    if(currentMarkers[i].doc._id == doc._id){
+                        currentMarkers[i].marker.setMap(null);
+                        currentMarkers.splice(i, 0);
+                    }
+                };
+            }
+        });
     });
 });

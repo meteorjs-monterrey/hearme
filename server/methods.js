@@ -23,6 +23,7 @@ Meteor.methods({
 						newMarker.geoLocation.lng);
 
 					if(distance< 10){
+						console.log("trying to add a marker within 10m");
 						return false;
 					}
 				}else{
