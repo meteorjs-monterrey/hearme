@@ -4,6 +4,7 @@ Template.postBody.events({
     var result = tmpl.find("input#postText").value;
     //  (2) Do some custom logic!
     if (result.length < 100) {
+      console.log(result);
       Template.postBody.utils.postMarker();
       MaterializeModal.close();
     } else {

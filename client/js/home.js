@@ -11,7 +11,7 @@ Template.home.onCreated(function(){
 });
 
 Template.home.events({
-	'click .post': function(){
+	'click a.post': function(){
 		Template.home.utils.showPostDialog();
 	}
 });
@@ -27,6 +27,6 @@ Template.home.utils = {
 		MaterializeModal.display({
 			bodyTemplate: "postBody",
 			footerTemplate: "postFooter"
-		});
+			});
 	}
 }
