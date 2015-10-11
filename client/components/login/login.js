@@ -3,7 +3,7 @@ Template.login.events({
 		
         Meteor.loginWithFacebook({}, function(err){
             if (err) {
-                alert("Facebook login error");
+                alert("Facebook login error: "+ err);
             }else{
             	FlowRouter.go('/');
             }
