@@ -1,15 +1,13 @@
 Template.chatMessage.helpers({
 	'calculateDistance': function() {
 		var latLng = geoLocationUtils.latLng();
-		console.log(latLng);
-		console.log(this);
 		var msgLat = this.geoLocation.lat;
 		var msgLng = this.geoLocation.lng;
 		var distanceMeters = 0;
 		var displayMessage = "";
 		if (latLng && (msgLat && msgLng))
 			distanceMeters = locationUtils.getDistance(latLng.lat, latLng.lng, msgLat, msgLng);
-		console.log(distanceMeters);
+
 		if (distanceMeters < 1)
 			return "";
 		else if (distanceMeters < 5)
