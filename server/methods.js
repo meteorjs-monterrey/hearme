@@ -19,6 +19,9 @@ Meteor.methods({
 					msg.text = msg.text.substring(0,140);
 				}
 
+				msg.text = msg.text.replace(/</g, '');
+				msg.text = msg.text.replace(/>/g, '');
+
 				Messages.insert(
 					{
 						user: user.name,
@@ -63,6 +66,9 @@ Meteor.methods({
 			}
 
 			var user = Meteor.users.findOne({_id:this.userId});
+
+			newMarker.text = newMarker.text.replace(/</g, '');
+			newMarker.text = newMarker.text.replace(/>/g, '');
 
 			Markers.insert(
 				{
