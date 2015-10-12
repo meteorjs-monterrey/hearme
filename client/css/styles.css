@@ -9,7 +9,6 @@ html {
 	background: #000 url("images/background.jpg") repeat fixed center center;
 	min-height: 700px;
 	min-width: 100%;
-	overflow-y: hidden;
 	text-align: center;
 }
 
@@ -45,7 +44,7 @@ html {
 	min-width: 250px;
 	padding: 0px 20px 0 35px;
 	border: none;
-	margin: 20% auto;
+	margin: 50px auto;
 }
  
 .iconfacebook:after {
@@ -66,4 +65,18 @@ html {
 
 .send-message{
 	background-color: #43609C;
+}
+
+.logoText {
+	padding:2%;
+}
+
+.nav-bar {
+	background-color: #3A5488 !Important;
+	height:80px !Important;
+}
+
+.verticalAlign {
+	vertical-align: middle;
+	display: inline-block;
 }
