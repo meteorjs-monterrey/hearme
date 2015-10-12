@@ -47,22 +47,6 @@ Meteor.methods({
 				var existingMarker = existingMarkers[i];
 
 				Markers.update({_id:existingMarker._id}, {$set:{'isActive': false}});
-
-				/*
-				if(existingMarker.geoLocation){
-					var distance = locationUtils.getDistance(
-						existingMarker.geoLocation.lat,
-						existingMarker.geoLocation.lng,
-						newMarker.geoLocation.lat,
-						newMarker.geoLocation.lng);
-
-					if(distance< 10){
-						console.log("trying to add a marker within 10m");
-						return false;
-					}
-				}else{
-					console.log("marker without location: "+ existingMarker._id);
-				}*/
 			}
 
 			var user = Meteor.users.findOne({_id:this.userId});
