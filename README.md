@@ -14,3 +14,5 @@ msavin:mongol
 chuangbo:cookie
 materialize:materialize@=0.97.0
 meteorstuff:materialize-modal
+
+Demo: https://youtu.be/kz4XE4BRNvM
