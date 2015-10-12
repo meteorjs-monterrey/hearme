@@ -5,7 +5,7 @@ html {
 .login-container{
 	margin: 0 auto;
 	position: absolute;
-	background: #000 url("images/background2.jpg") repeat fixed center center;
+	background: #000 url("images/background.jpg") repeat fixed center center;
 	min-height: 700px;
 	min-width: 100%;
 	overflow-y: hidden;
