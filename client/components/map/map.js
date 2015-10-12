@@ -80,7 +80,7 @@ Template.map.onCreated(function() {
                         icon: "/images/pointer.png",
                         animation: google.maps.Animation.DROP
                     });
-                    var contentString = '<div class=""><h5><img src="' + doc.picture + '" class="circle"/>' + doc.nick + '</h5><p>' + doc.text + '</p></div>';
+                    var contentString = '<div class=""><h5><img width="50px" src="' + doc.picture + '" class="circle"/>' + doc.nick + '</h5><p>' + doc.text + '</p></div>';
                     
                     var infowindow = new google.maps.InfoWindow({
                         content: contentString

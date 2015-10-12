@@ -70,3 +70,7 @@ html {
 	_border-color: #000000 #000000 #000000 #ffffff;
 	_filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
 }
+
+.hide {
+	display: none;
+}

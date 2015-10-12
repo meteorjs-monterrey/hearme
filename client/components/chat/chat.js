@@ -2,13 +2,20 @@ Template.chat.onCreated(function(){
 	Meteor.subscribe("chatMessages");
 });
 
+Template.chat.rendered = function(){
+	
+  Messages.find().observeChanges({
+	    added: function(id, doc) {
+	        if(!Template.chat.utils.scrolling){
+	        	Template.chat.utils.scrollTop();
+	   		}
+	  }
+	});
+};
+
 Template.chat.helpers({
 	'messages': function(){
 		return Messages.find({});
-	},
-
-	'userGeoLocation': function(){
-		return Geolocation.latLng();
 	}
 });
 
@@ -33,6 +40,7 @@ Template.chat.utils = {
 			userId: "-1",
 			picture: ""
 		};
+		console.log(text);
 		if (Meteor.user()) {
 			currentUser.userName = Meteor.user().name;
 			currentUser.userId = Meteor.userId();
@@ -44,6 +52,17 @@ Template.chat.utils = {
 			Meteor.call("addMessage", {text: text, geoLocation:geoLocationUtils.latLng()});
 			
 			$(".chat-input").val('');
+			$(".chat-input").focus();
 		}
+	},
+	scrolling: true,
+	scrollTop: function(){
+		var height = 0;
+    	$('.chat-messages li').each(function(i, value){
+    	    height += parseInt($(this).height());
+    	});
+		height += $(".chat-input").height();
+		console.log(height);
+    	$('.chat-messages').scrollTop(height);
 	}
 };
