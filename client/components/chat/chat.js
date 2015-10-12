@@ -2,16 +2,6 @@ Template.chat.onCreated(function(){
 	Meteor.subscribe("chatMessages");
 });
 
-Template.chat.rendered = function(){
-	
-  Messages.find().observeChanges({
-	    added: function(id, doc) {
-	        if(!Template.chat.utils.scrolling){
-	        	Template.chat.utils.scrollTop();
-	   		}
-	  }
-	});
-};
 
 Template.chat.helpers({
 	'messages': function(){
@@ -55,7 +45,6 @@ Template.chat.utils = {
 			$(".chat-input").focus();
 		}
 	},
-	scrolling: true,
 	scrollTop: function(){
 		var height = 0;
     	$('.chat-messages li').each(function(i, value){
