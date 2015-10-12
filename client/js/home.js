@@ -11,9 +11,12 @@ Template.home.onCreated(function(){
 });
 
 Template.home.events({
-	'click a.post': function(){
+	'click a.postBtn': function(){
 		Template.home.utils.showPostDialog();
-	}
+	},
+	'click a.chatBtn': function(){
+		Template.home.utils.showChat();
+	}	
 });
 
 Template.home.utils = {
@@ -24,9 +27,24 @@ Template.home.utils = {
 	},
 
 	showPostDialog: function() {
+		$('.fixed-action-btn').hide();
 		MaterializeModal.display({
 			bodyTemplate: "postBody",
-			footerTemplate: "postFooter"
+			footerTemplate: "postFooter",
+			callback: function(error, response) {
+				$('.fixed-action-btn').show();
+			}
+			});
+	},
+	showChat: function() {
+		$('.fixed-action-btn').hide();
+		MaterializeModal.display({
+			bodyTemplate: "chat",
+			footerTemplate: "chatFooter",
+			bottomSheet: true,
+			callback: function(error, response) {
+				$('.fixed-action-btn').show();
+			}
 			});
 	}
 }

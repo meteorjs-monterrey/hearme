@@ -1,5 +1,6 @@
 html {
-	font-family: "Arial Black", Gadget, sans-serif;
+	font-family: "Arial", Gadget, sans-serif;
+	overflow:hidden;
 }
 
 .login-container{

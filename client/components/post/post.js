@@ -1,10 +1,16 @@
+Template.navBar.onRendered(function(){
+   this.$('input#postText').characterCounter();
+   var input = this.find("#postText");
+    if (input)
+      input.focus();
+});
+
 Template.postBody.events({
   "click button[data-custom-action], submit form": function(e, tmpl) {
     
     var result = tmpl.find("input#postText").value;
 
-    if (result.length < 100) {
-      console.log(result);
+    if (result.length < 140) {
       Template.postBody.utils.postMarker();
       MaterializeModal.close();
     } else {
@@ -13,6 +19,7 @@ Template.postBody.events({
     return false;
   }
 });
+
 Template.postBody.utils = {
 	postMarker: function(){
 		var text = $("#postText").val();
