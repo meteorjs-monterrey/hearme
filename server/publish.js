@@ -52,8 +52,6 @@ Meteor.publish("markers", function(){
 
 		var userIds = [];
 
-		var allUsers = Meteor.users.find({}).fetch();
-
 		for (var i = 0; i < allUsers.length; i++) {
 			var user = allUsers[i];
 
